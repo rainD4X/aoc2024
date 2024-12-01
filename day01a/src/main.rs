@@ -1,7 +1,7 @@
 use core::str;
 
 fn main() {
-    let input = str::from_utf8(include_bytes!("../../inputs/day01a")).unwrap();
+    let input = str::from_utf8(include_bytes!("../../inputs/day01")).unwrap();
     let mut left : Vec<usize> = Vec::with_capacity(1000);
     let mut right : Vec<usize> = Vec::with_capacity(1000);
 
