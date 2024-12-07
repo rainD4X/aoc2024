@@ -20,3 +20,6 @@ target/
 Cargo.lock
 **/*.rs.bk
 *.pdb
+
+inputs/*
+!inputs/.gitkeep
