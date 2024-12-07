@@ -1,18 +1,14 @@
 mod day01;
 mod day02;
+mod day03;
 
 fn main() {
     let args: Vec<String> = std::env::args().collect();
 
     let days: Vec<Vec<Box<dyn Fn()>>> = vec![
-        vec![
-            Box::new(day01::part_one),
-            Box::new(day01::part_two),
-        ],
-        vec![
-            Box::new(day02::part_one),
-            Box::new(day02::part_two),
-        ],
+        vec![Box::new(day01::part_one), Box::new(day01::part_two)],
+        vec![Box::new(day02::part_one), Box::new(day02::part_two)],
+        vec![Box::new(day03::part_one), Box::new(day03::part_two)],
     ];
 
     // The first argument is the program name
@@ -25,16 +21,13 @@ fn main() {
     let day = args[1].parse::<usize>().unwrap_or_default() - 1;
     let part = args[2].parse::<usize>().unwrap_or_default() - 1;
 
-    if day < days.len()
-    {
+    if day < days.len() {
         if part < days[day].len() {
             days[day][part]();
-        }
-        else {
+        } else {
             println!("Day {} Part {} not found", day + 1, part + 1);
         }
-    }
-    else  {
-        println!("Day {} not found", day+ 1);
+    } else {
+        println!("Day {} not found", day + 1);
     }
 }
