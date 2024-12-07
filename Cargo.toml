@@ -1,6 +1,7 @@
-[workspace]
-resolver = "1"
-members = [
-    "day01a",
-    "day01b", "day02a", "day02b",
-]
+[package]
+name = "advent-of-code-2024"
+version = "0.1.0"
+edition = "2021"
+authors = [ "Romain Dijoux" ]
+
+[dependencies]

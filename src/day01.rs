@@ -1,11 +1,36 @@
 use core::str;
 
-fn main() {
-    let input = str::from_utf8(include_bytes!("../../inputs/day01")).unwrap();
+const INPUT: &str = include_str!("../inputs/day01");
+
+pub fn part_one() {
     let mut left: Vec<usize> = Vec::with_capacity(1000);
     let mut right: Vec<usize> = Vec::with_capacity(1000);
 
-    input.split_terminator('\n').for_each(|line| {
+    INPUT.split_terminator('\n').for_each(|line| {
+        let mut iter = line.split_ascii_whitespace();
+        let (l, r) = (iter.next().unwrap(), iter.next().unwrap());
+
+        left.push(l.parse::<usize>().unwrap());
+        right.push(r.parse::<usize>().unwrap());
+    });
+
+    left.sort_unstable();
+    right.sort_unstable();
+
+    let total_disance = left
+        .iter()
+        .zip(right.iter())
+        .map(|(l, r)| l.abs_diff(*r))
+        .sum::<usize>();
+
+    println!("Total Distance : {}", total_disance);
+}
+
+pub fn part_two() {
+    let mut left: Vec<usize> = Vec::with_capacity(1000);
+    let mut right: Vec<usize> = Vec::with_capacity(1000);
+
+    INPUT.split_terminator('\n').for_each(|line| {
         let mut iter = line.split_ascii_whitespace();
         let (l, r) = (iter.next().unwrap(), iter.next().unwrap());
 
@@ -36,6 +61,7 @@ fn main() {
                 }
             }
             l * count
-        }).sum::<usize>();
+        })
+        .sum::<usize>();
     println!("Similarity: {}", similarity)
 }
