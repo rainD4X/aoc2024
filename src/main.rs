@@ -1,6 +1,7 @@
 mod day01;
 mod day02;
 mod day03;
+mod day04;
 
 fn main() {
     let args: Vec<String> = std::env::args().collect();
@@ -9,10 +10,8 @@ fn main() {
         vec![Box::new(day01::part_one), Box::new(day01::part_two)],
         vec![Box::new(day02::part_one), Box::new(day02::part_two)],
         vec![Box::new(day03::part_one), Box::new(day03::part_two)],
+        vec![Box::new(day04::part_one), Box::new(day04::part_two)],
     ];
-
-    // The first argument is the program name
-    println!("Program name: {}", args[0]);
 
     if args.len() != 3 {
         println!("Usage : {} NDAY NPART", args[0]);
